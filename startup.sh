@@ -2,8 +2,8 @@
 
 # Variables
 HOSTNAME=$1
-USER=$2
-HOMEIP=$3
+USER=alex
+HOMEIP=64.121.113.10
 
 if [ -z "${HOSTNAME}" ]; then
     echo "hostname not set"
@@ -65,10 +65,11 @@ apt-get install -y xfce4
 
 # install java
 apt-get install -y software-properties-common python-software-properties # so we can actually add-apt-repository
-add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"
-apt-get update
-apt-get install -y oracle-java8-installer
 apt-get install -y git
+add-apt-repository ppa:webupd8team/java
+apt-get update
+# can't autoinstall, there's a GUI :<
+apt-get install oracle-java8-installer
 
 mkdir -p /home/$USER/.vnc
 rm /home/$USER/.vnc/xstartup

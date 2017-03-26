@@ -74,4 +74,5 @@ apt-get update
 apt-get install oracle-java8-installer
 
 su alex
+git clone https://github.com/aok5326/launch.git
 vncserver -localhost :1

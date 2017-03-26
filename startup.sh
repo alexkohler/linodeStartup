@@ -67,12 +67,13 @@ apt-get install -y git
 apt-get install -y midori
 
 # install java
-echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > test
+echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > /etc/apt/sources.list.d/webupd8team-java.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 apt-get update
 # can't autoinstall, there's a GUI :<
 apt-get install oracle-java8-installer
 
 su alex
+cd
 git clone https://github.com/aok5326/launch.git
 vncserver -localhost :1

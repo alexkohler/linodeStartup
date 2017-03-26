@@ -23,9 +23,9 @@ fi
 # update debian
 export DEBIAN_FRONTEND=noninteractive # don't bother me with prompts
 export APT_LISTCHANGES_FRONTEND=none
+# in case ipv6 is misbehaving while we update 
+sed -i "s/# precedence ::ffff:0:0\/96  100/precedence ::ffff:0:0\/96  100/" /etc/gai.conf
 apt-get -y update && apt-get -y upgrade
-
-# TODO - uncomment '# precedence ::ffff:0:0/96 100' in /etc/gai.conf
 
 # Update hostname
 sed -i "s/debian/$HOSTNAME/g" /etc/hosts
@@ -60,23 +60,18 @@ sed -i "s/ignoreip = 127.0.0.1\/8/ignoreip = 127.0.0.1\/8 $HOMEIP/" /etc/fail2ba
 
 # rest of the default configuration is good enough. Onward!
 
-# install our vnc server and window manager
+# install some goodies
 apt-get install -y vnc4server
 apt-get install -y xfce4 
-
+apt-get install -y git
+apt-get install -y midori
 
 # install java
-apt-get install -y software-properties-common python-software-properties # so we can actually add-apt-repository
-apt-get install -y git
-add-apt-repository ppa:webupd8team/java
+echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > test
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 apt-get update
 # can't autoinstall, there's a GUI :<
 apt-get install oracle-java8-installer
 
-mkdir -p /home/$USER/.vnc
-rm /home/$USER/.vnc/xstartup
-ln -s /etc/X11/xinit/xinitrc /home/$USER/.vnc/xstartup
-chmod 755 /home/$USER/.vnc/xstartup
-chown -R $USER:$USER /home/$USER
-
+su alex
 vncserver -localhost :1

@@ -3,7 +3,7 @@
 # Variables
 HOSTNAME=$1
 USER=alex
-HOMEIP=64.121.113.10
+HOMEIP=$2
 
 if [ -z "${HOSTNAME}" ]; then
     echo "hostname not set"

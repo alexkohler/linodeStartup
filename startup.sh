@@ -25,6 +25,8 @@ export DEBIAN_FRONTEND=noninteractive # don't bother me with prompts
 export APT_LISTCHANGES_FRONTEND=none
 apt-get -y update && apt-get -y upgrade
 
+# TODO - uncomment '# precedence ::ffff:0:0/96 100' in /etc/gai.conf
+
 # Update hostname
 sed -i "s/debian/$HOSTNAME/g" /etc/hosts
 hostnamectl set-hostname $HOSTNAME

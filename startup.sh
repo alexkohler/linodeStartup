@@ -73,7 +73,6 @@ apt-get update
 # can't autoinstall, there's a GUI :<
 apt-get install oracle-java8-installer
 
-su alex
-cd
+cd /home/alex
 git clone https://github.com/aok5326/launch.git
-vncserver -localhost :1
+chown alex:alex launch

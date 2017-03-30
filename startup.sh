@@ -64,14 +64,16 @@ sed -i "s/ignoreip = 127.0.0.1\/8/ignoreip = 127.0.0.1\/8 $HOMEIP/" /etc/fail2ba
 apt-get install -y vnc4server
 apt-get install -y xfce4 
 apt-get install -y git
-apt-get install -y midori
+apt-get install -y iceweasel
 
 # install java
-echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' > /etc/apt/sources.list.d/webupd8team-java.list
+echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' >> /etc/apt/sources.list.d/webupd8team-java.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 apt-get update
 # can't autoinstall, there's a GUI :<
 apt-get install oracle-java8-installer
+
+#xstartup still not configured right
 
 cd /home/alex
 git clone https://github.com/aok5326/launch.git

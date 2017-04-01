@@ -73,8 +73,8 @@ apt-get update
 # can't autoinstall, there's a GUI :<
 apt-get install oracle-java8-installer
 
-#xstartup still not configured right
-
 cd /home/alex
 git clone https://github.com/aok5326/launch.git
 chown alex:alex launch
+
+su -c "vncserver -localhost :1" alex

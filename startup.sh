@@ -70,7 +70,11 @@ apt-get install -y iceweasel
 echo -e 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main\n' >> /etc/apt/sources.list.d/webupd8team-java.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 apt-get update
-# can't autoinstall, there's a GUI :<
+# nty licenses
+echo debconf shared/accepted-oracle-license-v1-1 select true | \
+  debconf-set-selections
+echo debconf shared/accepted-oracle-license-v1-1 seen true | \
+  debconf-set-selections
 apt-get install oracle-java8-installer
 
 cd /home/alex

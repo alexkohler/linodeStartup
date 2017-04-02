@@ -75,7 +75,7 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | \
   debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | \
   debconf-set-selections
-apt-get install oracle-java8-installer
+apt-get install -y oracle-java8-installer
 
 cd /home/alex
 git clone https://github.com/aok5326/launch.git
